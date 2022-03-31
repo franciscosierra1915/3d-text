@@ -10,7 +10,7 @@ import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
  * Base
  */
 // Debug
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
@@ -30,6 +30,8 @@ const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
  */
 const fontLoader = new FontLoader();
 
+const donuts = [];
+
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
   const textGeometry = new TextGeometry("Voodoo Doughnut", {
     font: font,
@@ -42,7 +44,7 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
     bevelOffset: 0,
     bevelSegments: 5,
   });
-  
+
   textGeometry.center();
   const text = new THREE.Mesh(textGeometry, material);
   scene.add(text);
@@ -53,13 +55,11 @@ fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
     donut.position.x = (Math.random() - 0.5) * 10;
     donut.position.y = (Math.random() - 0.5) * 10;
     donut.position.z = (Math.random() - 0.5) * 10;
-    console.log("x;", donut.position.x)
-    console.log("y;", donut.position.y)
-    console.log("z;", donut.position.z)
-    // donut.rotation.x = Math.random() * Math.PI;
-    // donut.rotation.y = Math.random() * Math.PI;
-    // const scale = Math.random();
-    // donut.scale.set(scale, scale, scale);
+    donut.rotation.x = Math.random() * Math.PI;
+    donut.rotation.y = Math.random() * Math.PI;
+    const scale = Math.random();
+    donut.scale.set(scale, scale, scale);
+    donuts.push(donut);
     scene.add(donut);
   }
 });
@@ -122,6 +122,15 @@ const clock = new THREE.Clock();
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
+  if (donuts) {
+    donuts.map((donut) => {
+      donut.rotation.x = Math.cos(elapsedTime)
+      donut.rotation.y = Math.sin(elapsedTime)
+      // donut.position.x += 0.01
+      // donut.position.y += 0.01
+      // donut.position.z += 0.01
+    });
+  }
   // Update controls
   controls.update();
 
