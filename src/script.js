@@ -33,7 +33,7 @@ const fontLoader = new FontLoader();
 const donuts = [];
 
 fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
-  const textGeometry = new TextGeometry("Voodoo Doughnut", {
+  const textGeometry = new TextGeometry(`Voodoo Doughnut`, {
     font: font,
     size: 0.3,
     height: 0.1,
