@@ -22,7 +22,7 @@ const scene = new THREE.Scene();
  * Textures
  */
 const textureLoader = new THREE.TextureLoader();
-const matcapTexture = textureLoader.load("/textures/matcaps/9.png");
+const matcapTexture = textureLoader.load("./textures/matcaps/9.png");
 const material = new THREE.MeshMatcapMaterial({ matcap: matcapTexture });
 
 /**
@@ -32,7 +32,7 @@ const fontLoader = new FontLoader();
 
 const donuts = [];
 
-fontLoader.load("/fonts/helvetiker_regular.typeface.json", (font) => {
+fontLoader.load("./fonts/helvetiker_regular.typeface.json", (font) => {
   const textGeometry = new TextGeometry(`Voodoo Doughnut`, {
     font: font,
     size: 0.3,
