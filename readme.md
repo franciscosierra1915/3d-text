@@ -4,4 +4,4 @@ I created this [3D text](https://franciscosierra1915.github.io/3d-text/) using T
 
 I made it in honor of my favorite donuts shop: [Voodoo Doughnut](https://www.voodoodoughnut.com/).
 
-[![Screenshot of site](/thumbnail.png)(https://franciscosierra1915.github.io/3d-text/)
+[![Screenshot of site](/thumbnail.png)](https://franciscosierra1915.github.io/3d-text/)
